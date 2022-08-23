@@ -1,5 +1,5 @@
 # AtCoder
-[AtCoder](https://atcoder.jp/?lang=ja)でACを獲得したコードほ保管するリポジトリです。
+[AtCoder](https://atcoder.jp/?lang=ja)でACを獲得したコードを保管するリポジトリです。
 
 ## Reference
 - [AtCoder Problems](https://github.com/kenkoooo/AtCoderProblems)
