@@ -136,9 +136,11 @@ else:
     dt_now = datetime.datetime.now()
     repo_url = f"https://github.com/{github_userID}/AtCoder-submissions.git"
     repo = git.Repo()
+    date = dt_now.strftime('%Y/%m/%d %H:%M:%S')
     repo.git.add("submissions/*")
+    repo.git.commit("submissions/*", message="add submission: " + date)
     repo.git.add("lastupdate.json")
-    repo.git.commit("submissions/*", message="add submission: " + dt_now.strftime('%Y/%m/%d %H:%M:%S'))
+    repo.git.commit("lastupdate.json", message="updete lastupdate: " + date)
     repo.git.push("origin", "master")
 
     print(f"Finished process, added {add_cnt} files")
