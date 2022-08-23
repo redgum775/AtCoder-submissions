@@ -137,6 +137,6 @@ else:
     repo.git.add("submissions/*")
     repo.git.add("lastupdate.json")
     repo.git.commit("submissions/*", message="add submission: " + dt_now.strftime('%Y/%m/%d %H:%M:%S'))
-    repo.git.push("origin", "main")
+    repo.git.push("origin", "master")
 
     print(f"Finished process, added {add_cnt} files")
