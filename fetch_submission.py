@@ -10,18 +10,15 @@ with open("lastupdate.json", 'r') as f:
 lastupdate = lastupdate_json["lastupdate"]
 api_url = f"https://kenkoooo.com/atcoder/atcoder-api/v3/user/submissions?user={atcoder_userID}&from_second={lastupdate}"
 
-# 最終更新日の更新
-import time
-timestamp = int(time.time())
-lastupdate_json["lastupdate"] = timestamp
-with open("lastupdate.json", 'w') as f:
-    json.dump(lastupdate_json, f, indent=4)
-
 # APIを用いた提出データの取得
 def getSubmissionData():
     response = requests.get(api_url)
     jsonData = response.json()
     return jsonData
+
+# 取得時のtimestampを保存
+import time
+timestamp = int(time.time())
 
 submissions = getSubmissionData()
 submissions[:2]
@@ -127,6 +124,11 @@ if add_cnt == 0:
     # 何も追加していなければGitにアクセスしない
     print("No added submissions, end process")
 else:
+    # 最終更新のtimestampを保存
+    lastupdate_json["lastupdate"] = timestamp
+    with open("lastupdate.json", 'w') as f:
+        json.dump(lastupdate_json, f, indent=4)
+
     # GitHubにプッシュ
     import git
     import datetime
