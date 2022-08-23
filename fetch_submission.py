@@ -10,7 +10,7 @@ with open("lastupdate.json", 'r') as f:
 lastupdate = lastupdate_json["lastupdate"]
 api_url = f"https://kenkoooo.com/atcoder/atcoder-api/v3/user/submissions?user={atcoder_userID}&from_second={lastupdate}"
 
-# APIを用いた提出データの取得
+# APIを用いてlastupdate以降の日付の提出データを取得（最大500件）
 def getSubmissionData():
     response = requests.get(api_url)
     jsonData = response.json()
@@ -73,7 +73,7 @@ for submissions in newestSubmits.values():
         
         # 作成するファイルへのパス
         path = root + sub["contest_id"] + "/" + problem_num
-        # 拡張子の設定（C++, Pythonのみ）
+        # 拡張子の設定（C++, Python, PyPy, Javaのみ）
         if "C++" in sub["language"]:
             path += ".cpp"
         elif "Python" or "PyPy3" in sub["language"]:
