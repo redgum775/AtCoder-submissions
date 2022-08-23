@@ -135,6 +135,7 @@ else:
     repo_url = f"https://github.com/{github_userID}/AtCoder-submissions.git"
     repo = git.Repo()
     repo.git.add("submissions/*")
+    repo.git.add("lastupdate.json")
     repo.git.commit("submissions/*", message="add submission: " + dt_now.strftime('%Y/%m/%d %H:%M:%S'))
     repo.git.push("origin", "main")
 
