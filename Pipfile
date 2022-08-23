@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+numpy = "*"
+selenium = "*"
+requests = "*"
+gitpython = "*"
+ipykernel = "*"
+chromedriver-binary = "==104.0.5112.79.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
