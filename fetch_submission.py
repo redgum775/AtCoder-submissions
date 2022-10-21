@@ -54,10 +54,11 @@ import html
 import chromedriver_binary
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 import subprocess
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 # 追加したファイルの数を増やす
 add_cnt = 0
